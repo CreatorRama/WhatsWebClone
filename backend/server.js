@@ -7,7 +7,9 @@ const Message = require('./models/Message'); // Correct import name
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://whats-web-clone.vercel.app',
+}));
 app.use(bodyParser.json());
 
 // MongoDB connection
