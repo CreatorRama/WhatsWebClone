@@ -13,7 +13,7 @@ function ChatApp() {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/conversations');
+        const res = await axios.get('https://whatswebclone.onrender.com/api/conversations');
         setConversations(res.data);
         setLoading(false);
       } catch (err) {
@@ -27,7 +27,7 @@ function ChatApp() {
     if (selectedChat) {
       const fetchMessages = async () => {
         try {
-          const res = await axios.get(`http://localhost:5000/api/messages/${selectedChat.wa_id}`);
+          const res = await axios.get(`https://whatswebclone.onrender.com/api/messages/${selectedChat.wa_id}`);
           setMessages(res.data);
         } catch (err) {
           console.error('Error fetching messages:', err);
@@ -68,7 +68,7 @@ function ChatApp() {
     ));
 
     try {
-      const res = await axios.post('http://localhost:5000/api/messages', {
+      const res = await axios.post('https://whatswebclone.onrender.com/api/messages', {
         wa_id: selectedChat.wa_id,
         text
       });
